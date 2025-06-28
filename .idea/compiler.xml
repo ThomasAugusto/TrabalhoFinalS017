@@ -2,7 +2,16 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile name="Annotation profile for api-gateway" enabled="true">
+      <profile name="Annotation profile for broker" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
+        </processorPath>
+        <module name="broker" />
+      </profile>
+      <profile name="Annotation profile for email-sender" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -11,18 +20,11 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
         <module name="api-gateway" />
+        <module name="front-end" />
         <module name="account-service" />
         <module name="book-service" />
+        <module name="email-sender" />
         <module name="borrowing-service" />
-      </profile>
-      <profile name="Annotation profile for front-end" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
-        </processorPath>
-        <module name="front-end" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -37,6 +39,8 @@
       <module name="book-service" options="-parameters" />
       <module name="booksManager" options="-parameters" />
       <module name="borrowing-service" options="-parameters" />
+      <module name="broker" options="-parameters" />
+      <module name="email-sender" options="-parameters" />
       <module name="front-end" options="-parameters" />
       <module name="usersManager" options="-parameters" />
     </option>
