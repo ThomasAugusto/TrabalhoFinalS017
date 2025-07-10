@@ -12,10 +12,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "books")
 public class Book {
     @Id
-    String id;
-    String title;
-    String author;
-    boolean available;
+    private String id;
+    private String title;
+    private String author;
+    private boolean available;
 
     public Book(BookDTO data){
         this.title = data.title();
