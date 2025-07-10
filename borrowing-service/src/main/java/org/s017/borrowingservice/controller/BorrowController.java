@@ -1,6 +1,7 @@
-package org.s017.borrowingservice;
+package org.s017.borrowingservice.controller;
 
 import jakarta.validation.Valid;
+import org.s017.borrowingservice.service.BorrowService;
 import org.s017.borrowingservice.entity.Book;
 import org.s017.borrowingservice.entity.Borrow;
 import org.s017.borrowingservice.entity.BorrowDTO;

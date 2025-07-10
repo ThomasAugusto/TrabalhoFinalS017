@@ -1,4 +1,4 @@
-package org.s017.borrowingservice;
+package org.s017.borrowingservice.service;
 
 import org.s017.borrowingservice.entity.Book;
 import org.s017.borrowingservice.entity.Borrow;
