@@ -1,3 +1,5 @@
 package org.s017.accountservice.entities;
 
-public record UserDTO(String nickName, String password) {}
+import jakarta.validation.constraints.NotNull;
+
+public record UserDTO(@NotNull String name,@NotNull String email,@NotNull String password) {}

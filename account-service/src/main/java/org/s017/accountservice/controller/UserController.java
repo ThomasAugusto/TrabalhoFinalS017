@@ -1,5 +1,8 @@
 package org.s017.accountservice.controller;
 
+import jakarta.validation.Valid;
+import org.s017.accountservice.entities.RequestDTO;
+import org.s017.accountservice.entities.ResponseDTO;
 import org.s017.accountservice.service.UserService;
 import org.s017.accountservice.entities.User;
 import org.s017.accountservice.entities.UserDTO;
@@ -18,30 +21,14 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping()
-    public ResponseEntity<String> save(@RequestBody UserDTO data) {
-        var id = this.userService.save(data);
-        return ResponseEntity.status(HttpStatus.CREATED).body(id);
+    @PostMapping
+    public ResponseEntity<User> saveUser(@RequestBody @Valid UserDTO data){
+        userService.saveUser(data);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<User> findById(@PathVariable String id) {
-        return ResponseEntity.ok(this.userService.findById(id));
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Boolean> deleteById(@PathVariable String id) {
-        return ResponseEntity.ok(this.userService.deleteById(id));
-    }
-
-    @GetMapping
-    public ResponseEntity<Iterable<User>> findAll() {
-        return ResponseEntity.ok(this.userService.findAll());
-    }
-
-    @PutMapping()
-    public ResponseEntity<User> update(@RequestBody User user) {
-        this.userService.update(user);
-        return ResponseEntity.ok().build();
+    @PostMapping("/login")
+    public ResponseEntity<ResponseDTO> loginUser(@RequestBody @Valid RequestDTO data){
+        return ResponseEntity.ok(userService.loginUser(data));
     }
 }

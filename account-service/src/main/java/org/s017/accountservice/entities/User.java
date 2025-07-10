@@ -11,14 +11,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Getter
 @Setter
 @Document(collection = "users")
-public class User {
+public class User{
     @Id
     String id;
-    String nickName;
+    String name;
+    String email;
     String password;
 
     public User(UserDTO data) {
-        this.nickName = data.nickName();
+        this.name = data.name();
+        this.email = data.email();
         this.password = data.password();
     }
 }
