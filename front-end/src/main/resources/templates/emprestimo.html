@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitar Empréstimo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h2>📦 Solicitar Empréstimo</h2>
+
+    <form id="formEmprestimo">
+        <label for="livros">Selecione Livros (Ctrl/Cmd para múltiplos):</label>
+        <select id="livros" multiple size="5"></select>
+
+        <label for="quantidade">Quantidade:</label>
+        <input type="number" id="quantidade" min="1" value="1" required>
+
+        <input type="submit" value="Solicitar Empréstimo">
+    </form>
+
+    <a href="index.html">⬅️ Voltar</a>
+</div>
+
+<script src="script.js"></script>
+<script>
+    window.addEventListener("DOMContentLoaded", function () {
+        const select = document.getElementById("livros");
+        const livros = getLivros();
+
+        if (livros.length === 0) {
+            select.innerHTML = "<option disabled>Nenhum livro disponível</option>";
+        } else {
+            select.innerHTML = livros.map(livro =>
+                `<option value="${livro.id}">${livro.nome} - ${livro.autor}</option>`
+            ).join("");
+        }
+
+        const form = document.getElementById("formEmprestimo");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const selecionados = Array.from(select.selectedOptions);
+            const quantidade = parseInt(document.getElementById("quantidade").value);
+
+            if (selecionados.length === 0) {
+                alert("Selecione ao menos um livro.");
+                return;
+            }
+
+            const livrosSelecionados = selecionados.map(opt => opt.text);
+            alert(`📦 Empréstimo solicitado de ${quantidade}x para:\n- ${livrosSelecionados.join("\n- ")}`);
+        });
+    });
+</script>
+</body>
+</html>

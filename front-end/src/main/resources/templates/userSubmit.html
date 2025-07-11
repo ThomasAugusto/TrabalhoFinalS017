@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Cadastrar Usuário</title>
+    <link rel="stylesheet" href="@{/css/styles.css}" />
+</head>
+<body>
+    <header>
+        <h1>Cadastrar Usuário</h1>
+        <nav>
+            <ul>
+                <l1><a href="authentication.html">Início</a></l1>
+                <li><a href="userLogin.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Formulario de cadastro</h2>
+            <form onsubmit="userSubmit(event)">
+                <label for="name">Nome:</label>
+                <input type="text" name="name" id="name" required><br><br>
+
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email" required><br><br>
+
+                <label for="password">Senha:</label>
+                <input type="password" name="password" id="password" required><br><br>
+
+                <button type="submit">Cadastrar</button>
+            </form>
+        </section>
+
+        <aside>
+            <h3>Obs:</h3>
+            <p>Preencher todos os campos para completar o cadastro.</p>
+        </aside>
+    </main>
+
+    <script src="static/js/scripts.js"></script>
+</body>
+</html>
